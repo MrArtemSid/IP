@@ -24,4 +24,26 @@ LoadModule php_module modules/libphp.so
  phpinfo();
  ?>
 
- Check site: http://localhost/info.php
+Check site: http://localhost/info.php
+
+## phpmyadmin https://nicknixer.ru/administrirovanie/ustanovka-phpmyadmin-na-arch-linux/
+
+/etc/php/php.ini:
+....
+extension=zip
++extension=mysqli.so
++extension=mcrypt.so
+
+/etc/httpd/conf/extra/phpmyadmin.conf:
+
+Alias /phpmyadmin "/usr/share/webapps/phpMyAdmin"
+<Directory "/usr/share/webapps/phpMyAdmin">
+  DirectoryIndex index.php
+  AllowOverride All
+  Options FollowSymlinks
+  Require all granted
+</Directory>
+
+/etc/httpd/conf/httpd.conf:
+в конец
+Include conf/extra/phpmyadmin.conf
