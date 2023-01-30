@@ -1,0 +1,27 @@
+# https://noviello.it/ru/kak-ustanovit-linux-apache-mysql-php-lamp-na-archlinux php7 -> php
+
+/srv/http/index.html:
+<html>
+ <title>Archlinux</title>
+ <body>
+ <h2>Apache on Archlinux</h2>
+ </body>
+ </html>
+
+/etc/httpd/conf/httpd.conf:
+
+LoadModule mpm_event_module modules/mod_mpm_event.so -> #LoadModule mpm_event_module modules/mod_mpm_event.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so -> LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+
+В конец
+LoadModule php_module modules/libphp.so
+ AddHandler php-script php
+ Include conf/extra/php_module.conf
+
+ ___________________
+ /srv/http/info.php:
+ <?php
+ phpinfo();
+ ?>
+
+ Check site: http://localhost/info.php
