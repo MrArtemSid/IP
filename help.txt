@@ -71,3 +71,16 @@ Need to add configuration like that
 Also need to add it into hosts list
 /etc/hosts:
 127.0.1.1 something
+
+!!!!!If you don't wanna modify hosts file then add ".localhost" in your ServerName!!!!!
+
+<VirtualHost *:80>
+    ServerAdmin root@something
+    <Directory "/home/user/IP/something">
+        Require all granted
+    </Directory>
+    DocumentRoot "/home/user/IP/something"
+    ServerName something.localhost
+    ErrorLog "/home/user/IP/something/logs/error_log"
+    CustomLog "/home/user/IP/something/logs/access_log" common
+</VirtualHost>
