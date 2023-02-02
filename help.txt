@@ -47,3 +47,27 @@ Alias /phpmyadmin "/usr/share/webapps/phpMyAdmin"
 /etc/httpd/conf/httpd.conf:
 в конец
 Include conf/extra/phpmyadmin.conf
+
+___________________________________
+
+## Virtual hosts
+#Include conf/extra/httpd-vhosts.conf -> Include conf/extra/httpd-vhosts.conf
+
+/etc/httpd/conf/extra/httpd-vhosts.conf:
+
+Need to add configuration like that
+
+<VirtualHost something:80>
+    ServerAdmin root@something
+    <Directory "/home/user/IP/something">
+        Require all granted
+    </Directory>
+    DocumentRoot "/home/user/IP/something"
+    ServerName something
+    ErrorLog "/home/user/IP/something/logs/error_log"
+    CustomLog "/home/user/IP/something/logs/access_log" common
+</VirtualHost>
+
+Also need to add it into hosts list
+/etc/hosts:
+127.0.1.1 something
