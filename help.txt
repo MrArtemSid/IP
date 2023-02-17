@@ -84,3 +84,7 @@ Also need to add it into hosts list
     ErrorLog "/home/user/IP/something/logs/error_log"
     CustomLog "/home/user/IP/something/logs/access_log" common
 </VirtualHost>
+
+## ngrok - https://dashboard.ngrok.com/get-started/your-authtoken
+ngrok config add-authtoken <token>
+ngrok http 80
