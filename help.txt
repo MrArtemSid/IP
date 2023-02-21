@@ -32,7 +32,6 @@ Check site: http://localhost/info.php
 ....
 extension=zip
 +extension=mysqli.so
-+extension=mcrypt.so
 
 /etc/httpd/conf/extra/phpmyadmin.conf:
 
